@@ -1,10 +1,42 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Se connecter{% endblock %}
+{% block styles %}
+.question {
+    margin-bottom: .5rem;
+}
+.question [type='radio']{
+    width: 18px;
+    height: 18px;
+}
+.question [type='radio'] + label::after {
+    content: '';
+    display: block;
+}
+.text {
+    font-size: 1.3rem;
+}
+
+.quiz [type="submit"] {
+  display: block;
+  background-color: orange;
+  padding: .80rem 1rem;
+  font-weight: 600;
+  width: 80%;
+  border-radius: .5rem /.5rem;
+  margin: 3rem auto;
+
+}
+
+{% endblock %}
 
 {% block content %}
 {% if request.user not in q.passes.all %}
-<div style="display: flex; justify-content: center; align-items: center; margin-bottom: .5rem;">
+<h2 class="p-2 text-center">{{q.description}} - pass {{q.pourcent}}%</h2>
+
+<div class="quiz wrapper"">
     <form method="POST">
-        <h2>{{q.description}} - pass {{q.pourcent}}%</h2>
         <!-- {% for q in quiz.questions.all %}
             <p>{{ q.label }}</p>
             {%for a in q.answers.all %}
@@ -12,15 +44,19 @@
             {% endfor %}
         {% endfor %} -->
         {% for q in quiz %}
-        <p>{{ q.label }}</p>
-        {%for a in q.answers.all %}
-        <input required class="req" type="radio" name="{{q.pk}}" value="{{a.position}}"> <label class="q" for="{{q.pk}}">{{a.label}}</label> <br>
-        {% endfor %}
-    {% endfor %}
+        <div class="question">
+            <p class="text">{{ q.label }}</p>
+            {%for a in q.answers.all %}
+                <input required class="req" type="radio" name="{{q.pk}}" value="{{a.position}}"> <label class="q" for="{{q.pk}}">{{a.label}}</label>
+            {% endfor %}
+        </div>
+       {% endfor %}
+
         {% csrf_token %}
-        <input style="padding: .5rem .7rem; border: transparent; border-radius: .30rem;width: 7rem; background-color: green;" type="submit" value="Validate">
+        <input type="submit" value="Envoyer" class="btn">
     </form>
 </div>
+
 {% else %}
 
     {%if last%}
