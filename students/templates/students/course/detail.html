@@ -28,10 +28,20 @@
 
 
     {%if module.m_quiz and request.user not in module.m_quiz.passes.all%}
-        {{module.m_quiz.description}}
+        <!-- {{module.m_quiz.description}} -->
         <a href="{% url 'quiz' module.m_quiz.pk object.id%}?rnext={{request.get_full_path}}" class="btn quiz">Passer le questionnaire</a>
-     
     {%endif%}
+    <ul class="pagination">
+        {% for m in object.modules.all %}
+        {% if m.id <= last_mod %}
+            <li {% if module.title == m.title %} class="current" {% else %} class="already" {% endif %} ><a href="{% url 'student_course_detail_module' course.id m.id%}">{{m.title|truncatewords:1}}</a>
+        {%else%}
+            <li><a href='#' class=""></a>{{m.title|truncatewords:1}}</a></li>
+        {%endif%}
+
+        {% empty %}
+        {% endfor %}
+    </ul>
 
 </div>
 {% endblock %}

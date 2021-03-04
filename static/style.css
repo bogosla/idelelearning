@@ -368,38 +368,34 @@ img.detail{
   width: 37%;
   height: 100%;
 }
-.anim .circle {
+
+.pagination {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5rem;
+}
+.pagination li {
   display: block;
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  z-index: 100;
-  background-color: yellow;
-  animation: mcircle .5s infinite;
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: rgb(175, 172, 172);
+  margin: 1rem .5rem 1rem;
+  border-radius: 50%;
+  text-align: center;
 
 }
-.anim .circle2 {
+.pagination li a{
   display: block;
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  z-index: 100;
-  background-color: rgb(128, 228, 104);
-  animation: mcircle 1s infinite;
-
+  text-decoration: none;
+  padding: .25rem;
+  line-height: 2;
+  color: #ffffff !important;
 }
-
-.anim {
-  background-color: rgb(9, 159, 209);
-  height: 100%;
-  width: 100%;
-  animation: "circle" 3s .2s;
-  
+.pagination .already {
+  background-color: rgb(45, 194, 231);
 }
-@keyframes mcircle
-{
-  5%{
-    transform: rotate(1turn);
-  }
-  
+.pagination li.current {
+  background-color: rgb(114, 236, 65) !important;
 }
