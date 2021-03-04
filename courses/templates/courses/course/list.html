@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %}
+    {% if subject %}
+        {{ subject.title }} courses
+    {% else %}
+    All courses
+    {% endif %}
+{% endblock %}
+
+
+{% block content %}
+    <h1>
+        {% if subject %}
+            {{ subject.title }} courses
+        {% else %}
+            All courses
+        {% endif %}
+    </h1>
+    <div>
+        <h3>Subjects</h3>
+        <ul style="display: flex; flex-wrap: wrap; align-content: center; list-style: none; padding: .25rem;">
+            <li style="padding: .25rem; margin: .25rem .75rem;" {% if not subject %}{% endif %}><a href="">All</a></li>
+            {% for s in subjects %}
+            <li {% if subject == s %}{% endif %}><a href="{% url 'course_list_subject' s.slug %}">{{ s.title }}</a></li>
+            <span>{{ s.total_courses }} courses</span>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+        <h3>Courses</h3>
+       <div id="cours">
+           <div>
+            {% for course in courses %}
+            {% with subject=course.subject %}
+                <h3><a href="{% url 'course_detail' course.slug %}">{{ course.title }}</a></h3>
+                <p>
+                    <a href="{% url 'course_list_subject' subject.slug %}">{{ subject }}</a>
+                    {{ course.total_modules }} modules.
+                    Instructor: <span>{{ course.owner }}</span>
+                     {% if course.price %} {{ course.price }}$ {% else %} gratuit{% endif %}
+                </p>
+            {% endwith %}
+            {% endfor %}
+           </div>
+
+       </div>
+       {% include "courses/course/pagination.html" with page=courses %}
+
+    </div>
+{% endblock %}
+
+{% block js %}
+    var n = 1;
+    var num = $('#current').data('num');
+    $('.page a').click(function(e) {
+        e.preventDefault();
+        var p = $(this).data('xy');
+        n = n + p;
+        $('#current').text(n);
+        if(n <= 1) n=1;
+        else if(n >= num) n = num;
+        $('#current').text(n);
+        $.get("?page="+n, function(da) {
+            $('#cours').html(da);
+        });
+    });
+
+{% endblock %}

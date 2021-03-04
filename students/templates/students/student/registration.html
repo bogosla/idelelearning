@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Se connecter{% endblock %}
+{% block styles %}
+   
+
+{% endblock %}
+
+
+{% block content %}
+    <div class="form-log ">
+        <!-- <h2>Creer un compte maitenant</h2> -->
+        <div class="user"><i class="fa fa-user"></i></div>
+        <form>
+            <div>
+                <div class="wrapper-form">
+                    <label for="first">Prenom:</label>
+                    {{ form.first_name }}
+                </div>
+                <div class="wrapper-form">
+                    <label for="last">Nom:</label>
+                    {{ form.last_name }}
+                </div>
+            </div>
+           
+            <div class="wrapper-form">
+                <label for="username">Username/Pseudo</label>
+                {{ form.username }}
+            </div>
+            <div class="wrapper-form">
+                <label for="email">Email:</label>
+                {{ form.email }}
+            </div>
+            <div class="wrapper-form">
+                <label for="pass">Mot de passe</label>
+                {{ form.password }}
+            </div>
+           
+            {% csrf_token %}
+
+            <input type="submit" value="Creer son compte" class="btn b_blue">
+        </form>
+        <p class="p-2">Deja membre?<a href="{%url 'student_login' %}">Se connecter a votre compte.</a></p>
+
+    </div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

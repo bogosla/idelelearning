@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    {{ object.title }}
+{% endblock %}
+
+
+{% block content %}
+{% with subject=object.subject %}
+
+<section class="wrapper-fluid" id="detail">
+    <p><img {% if object.photo%} src="{{ object.photo.url }}" {% else%} src="{% static 'no.png' %}" {% endif %}  alt="" class="detail"></p>
+    <h1 class="p-2">{{ object.title }}</h1>
+    
+    
+    <div class="wrapper">
+        <p>
+            Categorie: <a href="{% url 'course_list_subject' subject.slug %}">{{ subject.title }}</a><br>
+            Instructeur: {{ object.owner }} <br>
+            Langue: Creole Haitienne
+        </p>
+        <br>
+        <h1>{% if object.price %} {{ object.price }} {% else %} Gratis{% endif %}</h1><br>
+    </div>
+
+
+    <p class="wrapper">
+        {% if request.user.is_authenticated %}
+
+        {% if object not in request.user.course_joined.all %}
+            <form method="POST" action="{% url 'student_enroll_course' %}">
+                {{ enroll_form }}
+                <input type="submit" class="btn w-100 big b_yellow " value="Acheter des maintenant">
+                {% csrf_token %}
+            </form>
+        {% else %}
+            <a href="" class="btn big b_yellow">poursuivre</a>
+        {% endif %}
+
+    {% else %}
+        <a class="btn big b_yellow" href="{% url 'student_registration' %}">S'enregistrer pour appliquer</a>
+    {% endif %}
+        
+        <div class="comp">
+            <h3>Ce cours comprends:</h3>
+            <ul>
+                <li> {{ object.modules.count }} modules. </li>
+                <li>Certificat de reussite</li>
+            </ul>
+        </div>
+    </p>
+    <section class="descrip wrapper text-center mt-3">
+        <h3>Description du cours</h3>
+        <p class=""> {{ object.overview|linebreaks }} </p>
+    </section>
+    <section class="wrapper mt-3">
+        <h3>Contenu du cours</h3>
+        
+        <ol class="list l cont">
+            {% with modules=object.modules.all %}
+        {% for m in modules %}
+        <li>{{ m.title }}</li>
+        <!-- {% for i in m.contents.all %}
+        <p>{{ i.item.title }}</p>
+        {% endfor %} -->
+        {% endfor %}
+        {% endwith %}
+            
+        </ol>
+    </section>
+
+    <section id="other-c" class="wrapper mt-3">
+        <h2>D'autres cours</h2>
+        <div class="scroll">
+            <div class="bwat">
+                {% for c in lastest %}
+                <img src="{{c.photo.url}}" alt="">
+                <div class="infos p-1">
+                    <h2 class=""> <a href="{% url 'course_detail' c.slug %}">{{ c.title }}</a></h2>
+                    <p class="">categories: <a href="{% url 'course_list_subject' c.subject.slug %}">{{ c.subject.title }}</a></p>
+                    <p class="">Instructeur {{ c.owner}} <span><i class="fa fa-eye">{{ c.views }}</i></span></p>
+                </div>
+                {% empty %}
+                {% endfor %}
+              
+            </div>
+           
+        </div>
+        <div class="scroll">
+            <div class="bwat"></div>
+            <div class="bwat"></div>
+            <div class="bwat"></div>
+        </div>
+    </section>
+    
+</section>
+
+{% endwith %}
+
+{% endblock %}

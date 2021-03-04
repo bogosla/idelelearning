@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="{% static 'style.css' %}">
+      <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.css' %}">
+
+		<title>Custom DOKLA</title>
+		<style>
+		  
+		</style>
+    </head>
+    <body>
+        <header>
+			<nav class="navbar">
+				<div class="navbar_l">
+					<button class="hamb">
+						<span class="iconHamb"></span>
+						<span class="iconHamb"></span>
+						<span class="iconHamb"></span>
+					</button>
+					<a href="" class="brand">IDEL E-learning</a>
+					<ul class="nav">
+						<li class="item">
+							<a class="link" href="">Home</a>
+						</li>
+						<li class="item">
+							<a class="link" href="">Myblog</a>
+						</li>
+						<li class="item">
+							<a class="link" href="">Donate</a>
+						</li>
+						<li class="item">
+							<a class="link" href="">Contact me</a>
+						</li>
+					</ul>
+				</div>
+				<div class="navbar_r">
+					<a href="">)</a>
+					/
+					<a href="">0</a>
+				</div>
+			</nav>
+      </header>
+
+      <section class="wrapper-fluid" id="detail">
+        <p><img src="{% static 'j1.jpeg' %}" alt="" class="detail"></p>
+        <h1 class=" p-2">Django & Python 3</h1>
+        
+        <div class="wrapper">
+            <h3>Categories: <span>Leadership</span></h3>
+            <p>Cree par <span>James DESTINE</span></p>
+            <p>Langue: <span>Creole Haitienne</span></p>
+            <br>
+            <h1>139.43 $ht</h1><br>
+        </div>
+
+
+        <p class="wrapper">
+            <a href="" class="btn b_yellow">Acheter des maintenant</a>
+            <div class="comp">
+                <h3>Ce cours comprends:</h3>
+                <ul>
+                    <li>4 modules</li>
+                    <li>Certificat de reussite</li>
+                </ul>
+            </div>
+        </p>
+        <section class="descrip wrapper text-center mt-3">
+            <h3>Description du cours</h3>
+            <p class="">chhjb hh hfkhfhfjf jfbbbkrlfmf fjfjflf fkfofkf 
+                ffjj fjjjjjjjjjjjjjjjjjjff jf fhhhhhhhhhhhhhhhhhhhlf
+                fuuuuuuuuuuu fuuuuuuuuuuuu
+            </p>
+        </section>
+        <section class="wrapper mt-3">
+            <h3>Contenu du cours</h3>
+            <ol class="list l cont">
+                <li>Introducion</li>
+                <li>Decouvrir Django</li>
+                <li>Introducion</li>
+                <li>Decouvrir Django</li>
+                <li>Introducion</li>
+                <li>Decouvrir Django</li>
+            </ol>
+        </section>
+        
+    </section>
+    <section id="other-c" class="wrapper mt-3">
+        <h2>D'autres cours</h2>
+        <div class="scroll">
+            <div class="bwat">
+                <img src="{% static 'j1.jpeg' %}" alt="">
+                <div class="infos p-1">
+                    <h2 class="">Python 3 - $133.23ht</h2>
+                    <p class="">categories: Leadership</p>
+                    <p class="">Cree par James DESTINE <span><i class="fa fa-eye">244</i></span></p>
+                </div>
+              
+            </div>
+            <div class="bwat">
+                <img src="{% static 'j1.jpeg' %}" alt="">
+
+                <div class="infos p-1">
+                    <h2 class="">Python 3 - $133.23ht</h2>
+                    <p class="">categories: Leadership</p>
+                    <p class="">Cree par James DESTINE <span><i class="fa fa-eye">244</i></span></p>
+                </div>
+            </div>
+            <div class="bwat">
+                <img src="{% static 'j1.jpeg' %}" alt="">
+                <h2>Javascript</h2>
+            </div>
+        </div>
+        <div class="scroll">
+            <div class="bwat"></div>
+            <div class="bwat"></div>
+            <div class="bwat"></div>
+        </div>
+    </section>
+
+    </body>
+</html>

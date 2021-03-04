@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load student_tags %}
+
+{% block title %}
+    {{ object.title }}
+{% endblock %}
+
+{% block content %}
+
+<h1>{{ module.title }}</h1>
+
+<div class="contents">
+    <h3>Modules</h3>{{last_mod}}
+  
+</div>
+<h3>{% if last_module %}Cours termine.{% endif %}</h3>
+
+<div class="module">
+    {% for content in module.contents.all %}
+    {% with item=content.item %}
+    <div id="content-items" >
+    <h2>{{ item.title }}</h2>
+        {{ item.render }}
+    </div>
+    {% endwith %}
+    {% endfor %}
+</div>
+
+
+    {%if module.m_quiz and request.user not in module.m_quiz.passes.all%}
+        {{module.m_quiz.description}}
+        <a href="{% url 'quiz' module.m_quiz.pk object.id%}?rnext={{request.get_full_path}}" class="btn quiz">Passer le questionnaire</a>
+     
+    {%endif%}
+
+</div>
+{% endblock %}

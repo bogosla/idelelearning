@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idel - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <style>{% block styles %}{% endblock %}</style>
+</head>
+
+
+<body>
+    {% block header%}
+    <header>
+        <nav class="navbar">
+            <div class="navbar_l">
+                
+                <button class="hamb" id="hamb">
+                    <span class="iconHamb"></span>
+                    <span class="iconHamb"></span>
+                    <span class="iconHamb"></span>
+                </button>
+                
+                <a href="" class="brand">Idel Elearning</a>
+                <ul class="nav nav-toggler">
+                    <li>
+                        <form class="nav-form"><input type="text" placeholder="Rechercher"></form>
+                    </li>
+                    <li class="item">
+                        <a class="link" href="{% url 'home' %}">Accueil</a>
+                    </li>
+                    <li class="item">
+                        <a class="link" href="{% url 'course_list' %}">Nos cours</a>
+                    </li>
+                    {% if request.user.is_authenticated %}
+                    <!-- <li><a class="link" href="{% url 'student_course_list' %}">Dashboard</a></li> -->
+                    <!-- <li><a class="link" href="{% url 'student_password_change' %}">Password</a></li> -->
+                {% else %}
+                    <li><a class="link" href="#">Donate</a></li>
+
+                    <li><a class="link" href="{% url 'home' %}#contact">Nous contacter</a></li>
+
+                {% endif %}
+                    
+                </ul>
+            </div>
+            <div class="">
+                <ul class="nav nav-toggler">
+                    {% if request.user.is_authenticated %}
+                        <li><a class="link" href="{% url 'logout' %}">Quitter</a></li>
+
+                    {% else %}
+                        <li><a class="link btn b_yellow c_black" href="{% url 'student_login' %}">Nous-joindre</a></li>
+                    {% endif %}
+
+                </ul>
+
+
+            </div>
+            
+        </nav>
+    </header>
+    {% endblock %}
+    <div class="wrapper-fluid xxx">{% block content %}{% endblock %}</div>
+
+
+
+
+    {% block footer %}
+        <footer id="foo">
+            <div class="wrapper">
+                <h2 class="p-2 brand">IDEL E-learning</h2>
+
+                <ul class="list-footer">
+                    <li><a href="#">A propos d'IDEL</a></li>
+                    <li><a href="#">Nos services</a></li>
+                    <li><a href="#">Donate</a></li>
+                    <li><a href="#">Contactez-nous</a></li>
+                    <li><a href="#">Politiques de confidentialites</a></li>
+                    <li>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-youtube"></i></a>
+
+
+                    </li>
+                </ul>
+                <hr style="background-color: #cccccc;">
+                <p class="p-2" ><a href="mailto=#" style="color: grey;" >idellearning@gmail.com</a></p>
+                <p class="p-1">&copy;IDEL E-learning - 2021.</p>
+            </div>
+        </footer>
+    {% endblock %}
+    <script src="{% static 'jquery-3.5.1.js' %}"></script>
+
+    <script>
+        $(document).ready(function() {
+            {% block js %}
+            {% endblock %}
+        });
+       
+        var hamb = document.querySelector('#hamb');
+		   hamb.addEventListener('click', function(){
+		      var nav = document.querySelector('.navbar');
+		      nav.classList.toggle('toggle');
+		   });
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete course{% endblock %}
+
+{% block content %}
+
+    <h3>Delete "{{ course.title }}"</h3>
+    <div><form method="post">
+        {% csrf_token %}
+        <p>Are yu sure you wanna delete "{{ object.title }}"</p>
+        <input type="submit" value="confirm">
+    </form></div>
+               
+        
+    
+{% endblock %}

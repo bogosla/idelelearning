@@ -1,0 +1,12 @@
+{% for course in courses %}
+{% with subject=course.subject %}
+    <h3><a href="{% url 'course_detail' course.slug %}">{{ course.title }}</a></h3>
+    <p>
+        <a href="{% url 'course_list_subject' subject.slug %}">{{ subject }}</a>
+        {{ course.total_modules }} modules.
+        Instructor: <span>{{ course.owner }}</span>
+         {% if course.price %} {{ course.price }}$ {% else %} gratuit{% endif %}
+    </p>
+
+{% endwith %}
+{% endfor %}

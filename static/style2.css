@@ -1,0 +1,104 @@
+/* MOBILES and TABLETTES */
+
+@media(max-width: 567px)
+{
+    html { font-size: 14px; }
+    .navbar {
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+        /* min-height: calc(2rem + 1rem + 2px);  */
+        padding-left: .75rem;
+        padding-right: .75rem;
+        height: calc(2.3rem + 1.2rem + 2px);
+
+     }
+     .hamb { display: inline-block !important; }
+
+    .nav {
+        position: absolute;
+        width: inherit;
+        list-style: none;
+        height: 100%;
+        transform: translateX(-120%);
+    }
+    
+    .toggle .nav-toggler {
+      position: relative;
+        display: block;
+        transform: translateX(0%);
+      transition: all 1s;
+      height: 100%;
+      z-index: 20;
+    }
+    .toggle .hamb .iconHamb:nth-child(2) {display: none; }
+    .toggle .hamb .iconHamb:nth-child(1) {
+        transform: rotate(55deg);
+    }
+    .toggle .hamb .iconHamb:nth-child(3) {
+        transform: rotate(-55deg);
+    }
+    
+    .nav .link:nth-child(odd){
+        margin-top: .85rem;
+    }
+
+    .nav .nav-form {
+        box-shadow: 2px 1px 2px 1px rgb(216, 216, 216), -2px -1px 2px 1px rgb(216, 216, 216);
+        margin-top: 1.97rem;
+    }
+    .nav-form [type="text"] {
+        display: block;
+        width: 100%;
+         padding: .5rem .25rem;
+        border: transparent;
+        outline: 0;
+        background: #ffffff;
+        color: #e7e5e5;
+        height: calc(2.2rem + .7rem + 2px);
+        border-radius: 4px;
+    }
+    .wrapper { padding-left: 0.75rem; padding-right: 0.75rem; }
+    #content-items {
+        padding: .25rem 5rem !important;
+    }
+
+
+
+}
+
+
+
+.list-course {
+    display: block;
+}
+.list-course li {
+    display: flex;
+    align-items: center;
+}
+.list-course li:nth-child(1n + 1) {
+    margin-top: .97rem;
+}
+.list-course li i{
+    display: block;
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    background: yellow;
+}
+.list-course li a {
+    text-decoration: none;
+    padding: .25rem .5rem;
+}
+
+.content-image {
+    width: 80%;
+    height: calc(100% + 5.5rem);
+    border: 1px solid rgb(201, 206, 211);
+    display: flex;
+    justify-content: center;
+}
+.content-image img {
+    height: 100%;
+    border: 4px;
+}
+

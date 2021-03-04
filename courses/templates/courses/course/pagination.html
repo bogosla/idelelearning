@@ -1,0 +1,16 @@
+<div>
+    <span class="page">
+        <!-- {% if page.has_previous %}
+        <a href="" data-xy="-1">Precedent {{ page.previous_page_number }} </a>
+        {% endif %} -->
+        <a href="" data-xy="-1">Precedent </a><br>
+
+
+        <a href="" id="current" data-num="{{ page.paginator.num_pages }}">{{ page.number }} </a><br>
+
+        {% if page.has_next %}
+        <a href="" data-xy="1">{{ page.next_page_number }} Next</a>
+        {% endif %}
+
+    </span>
+</div>

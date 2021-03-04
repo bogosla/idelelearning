@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if request.user not in q.passes.all %}
+<div style="display: flex; justify-content: center; align-items: center; margin-bottom: .5rem;">
+    <form method="POST">
+        <h2>{{q.description}} - pass {{q.pourcent}}%</h2>
+        <!-- {% for q in quiz.questions.all %}
+            <p>{{ q.label }}</p>
+            {%for a in q.answers.all %}
+            <input required class="req" type="radio" name="{{q.pk}}" value="{{a.position}}"> <label class="q" for="{{q.pk}}">{{a.label}}</label> <br>
+            {% endfor %}
+        {% endfor %} -->
+        {% for q in quiz %}
+        <p>{{ q.label }}</p>
+        {%for a in q.answers.all %}
+        <input required class="req" type="radio" name="{{q.pk}}" value="{{a.position}}"> <label class="q" for="{{q.pk}}">{{a.label}}</label> <br>
+        {% endfor %}
+    {% endfor %}
+        {% csrf_token %}
+        <input style="padding: .5rem .7rem; border: transparent; border-radius: .30rem;width: 7rem; background-color: green;" type="submit" value="Validate">
+    </form>
+</div>
+{% else %}
+
+    {%if last%}
+        <h1>Felicitations!Vous avec termine avec ce cours.</h1>
+    Vous pouvez revisez a tout moment.
+
+    {% endif %}
+
+    {%if course_id%}
+        {%if last%}
+        <a href="{% url 'student_course_detail_module' course_id %}">Revisez</a>
+        {%else%}
+        <a href="{% url 'student_course_detail_module' course_id %}">Suivant</a>
+        {% endif %}
+    {% endif %}
+
+{% endif %}
+<script>
+    var qs = document.querySelectorAll('.q');
+    document.querySelector('form').addEventListener('submit', function(e){
+        var x = 55;
+    });
+
+</script>
+
+{% endblock %}

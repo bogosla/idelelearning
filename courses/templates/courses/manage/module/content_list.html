@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load student_tags %}
+{% block title %}
+    Module {{ module.order|add:1}}: {{ module.title }}
+{% endblock %}
+
+
+{% block content %}
+    {% with course=module.course %}
+    <h1>course "{{ course.title }}"</h1>
+    <div class="contents">
+        <h3>Modules</h3>
+        <ul>
+            {% for m in course.modules.all %}
+                <li><a href="{% url 'module_content_list' m.id %}"><span>Module: {{ m.order|add:1 }}</span>{{ m.title }}</a></li>
+            {% empty %}
+            <p>No modules yet.</p>
+            {% endfor %}
+        </ul>
+
+        <p><a href="{% url 'course_module_update' course.id %}">Edit modules</a></p>
+    </div>
+    <div class="module">
+        <h2>Module {{ module.order|add:1 }}: {{ module.title }}</h2>
+        <h3>Module contents:</h3>
+        <div class="module_contents">
+            {% for content in module.contents.all %}
+                <div>
+                    {% with item=content.item %}
+                        <p>{{ item }}</p>
+                        <a href="{% url 'module_content_update' module.id item|model_name item.id%}">Editer {{ item|model_name}}</a>
+                        <form action="{% url 'module_content_delete' content.id %}" method="post">
+                            <input type="submit" value="Delete">
+                            {% csrf_token %}
+                        </form>
+                    {% endwith %}
+                </div>
+                {% empty %}
+                <p>This modules has not contents yet.</p>
+            {% endfor %}
+        </div>
+        <h3>Add new content</h3>
+        <ul class="content_types">
+            <li><a href="{% url 'module_content_create' module.id 'text' %}">Text</a></li>
+            <li><a href="{% url 'module_content_create' module.id 'image' %}">Image</a></li>
+            <li><a href="{% url 'module_content_create' module.id 'video' %}">Video</a></li>
+            <li><a href="{% url 'module_content_create' module.id 'file' %}">File</a></li>
+
+        </ul>
+    </div>
+
+
+    {% endwith %}
+{% endblock %}

@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+	<div>
+		<div class="pres">
+			<h2 class="text-center p-2" style="color: rgb(250, 220, 48); opacity: .9; font-size: 2rem; text-shadow: 0 0 2px rgb(6, 94, 129);">Idel E-learning & Coaching</h2>
+			<p class="p-2" style="text-align-last: center; text-align: center;">Institut de developpement personnel, d'entrepreneuriat et de leadership.</p>
+			<p class="p-1">Apprenez avec nous des maintenant.</p>
+			<button class="btn bg_black_b big">Nous joindre</button>
+			<div></div>
+		</div>
+	</div>
+
+  	<section class="wrapper mt-3" id="programmes">
+		<header><h2 class="text-center">Nos programmes</h2></header>
+		<ul class="wrapper">
+			<li>
+				<h3>Developpement personnel</h3>
+				<p>Aide les participants a developper leurs capacites intrinseques, leurs estimes de soi
+					et d'acquerir des connaissances sur la realisations de soi.
+				</p>
+			</li>
+			<li>
+				<h3>Leadership</h3>
+				<p>Cette formation permet aux participants d'acquerir des connaissances sur la facon
+					de se diriger d'eux meme et de mener un groupe en vue d'atteindre un objectif.
+				</p>
+			</li>
+			<li>
+				<h3>Entrepreneuriat</h3>
+				<p>Le programme d'entrepreneuriat vise a offrir aux participants des savoirs sur la facon de 
+					materialiser une idee entrepreneuriale, comment gerer et faire prosperer une entreprise.
+				</p>
+			</li>
+		</ul>
+  	</section>
+
+	<section>
+		<div class="wrapper">
+			<a href="{% url 'course_list' %}" class="btn mauve">Voire la liste des cours...</a>
+		</div>
+	</section>
+
+	<section class="about wrapper mt-3">
+		<header><h2 class="text-center ">Pourquoi IDEL?</h2></header>
+		<p>Nous sommes une entreprise sociale qui offre des formations
+			en ligne dans les domaines du developpement personnel, de l'entrepreneuriat
+			et de leadership.
+		</p>
+		<p>A travers ces programmes de formation et de coaching , IDEL vise a ameliorer
+			la performance des professionnels en milieu de travail; permettre aux participants de mieux
+			s'orienter professionnellement et d'aider aux participants de concretiser leurs idees entrepreneuriales.
+		</p>
+	</section>
+
+	<section class="about wrapper mauve">
+		<p>IDEL offre egalement un programme de coaching et d'orientation.</p>
+		<a class="btn yellow">Plus d'informations</a>
+	</section>
+
+	<section class="wrapper mt-3" id="apropos">
+		<div>
+			<div class="img"></div>
+			<h2>Christine REGISTRE <span>Coordonnatrice</span></h2>
+			<p>Aucune personne n'est libre jusqu'a ce qu'elle apprenne a penser par
+				elle meme et a avoir le courage d'agir de son propre chef
+			</p>
+			<h3>Napoleon HILL</h3>
+		</div>
+
+		<div>
+			<div class="img"></div>
+			<h2>Christine REGISTRE <span>Coordonnatrice</span></h2>
+			<p>Aucune personne n'est libre jusqu'a ce qu'elle apprenne a penser par
+				elle meme et a avoir le courage d'agir de son propre chef
+			</p>
+			<h3>Napoleon HILL</h3>
+		</div>
+
+		<div>
+			<div class="img"></div>
+			<h2>Christine REGISTRE <span>Coordonnatrice</span></h2>
+			<p>Aucune personne n'est libre jusqu'a ce qu'elle apprenne a penser par
+				elle meme et a avoir le courage d'agir de son propre chef
+			</p>
+			<h3>Napoleon HILL</h3>
+		</div>
+	</section>
+
+	<section class="wrapper mt-3" id="contact">
+		<h3 class="text-center">Envoyez-nous un message</h3>
+		<form action="">
+			<div class="wrapper-form">
+				<label for="name">Nom complet</label>
+				<input type="text" placeholder="Nom prenom" class="input">
+			</div>
+			
+			<div class="wrapper-form">
+				<label for="email">Email</label>
+				<input type="email" placeholder="Ex:jdestine68@gmail.com" class="input">
+			</div>
+
+			<div class="wrapper-form">
+				<label for="msg">Message</label>
+				<textarea name="msg" id="" class="input" placeholder="Votre message"></textarea>
+			</div>
+
+			<div class="text-center">
+				<input type="submit" value="Envoyer" class="btn big b_yellow">
+			</div>
+		</form>
+	</section>
+
+
+{% endblock %}

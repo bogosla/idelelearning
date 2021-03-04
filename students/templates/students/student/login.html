@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Se connecter{% endblock %}
+{% block styles %}
+{% endblock %}
+<h1>Log-in</h1>
+<div>
+
+
+{% block content %}
+    <div class="form-log" >
+        {% if form.errors %}
+        <p>Mot de passe et pseudo ne correspondent pas.</p>
+        <!--  -->
+        {% endif %}
+        <div class="user"><i class="fa fa-user"></i></div>
+        <!-- <h2>Se connecter a votre compte</h2> -->
+
+        <form action="{% url 'login' %}" method="POST">
+            <div class="wrapper-form">
+                <label for="username">Username/Pseudo:</label>
+                {{ form.username }}
+            </div>
+            <div class="wrapper-form">
+                <label for="pass">Mot de passe:</label>
+                {{ form.password }}
+			</div>
+           
+            {% csrf_token %}
+
+            <input type="submit" value="Se connecter" class="btn">
+            <p class="p-2 text-center"><a href="#">Mot de passe oublie?</a></p>
+        </form>
+        <p>Pas encore de compte?<a href="{% url 'student_registration' %}">Creer votre compte.</a></p>
+    </div>
+{% endblock %}
+
+{% block footer %}{% endblock %}
