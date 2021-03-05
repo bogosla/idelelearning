@@ -12,7 +12,7 @@ margin: 0;
 font-weight: 200;
 }
 
-html, body { height: 100%; font-size: 14px; font-family: "jae"; color: #222; line-height: 1.5;}
+html, body { height: 100vh; font-size: 14px; font-family: "jae"; color: #222; line-height: 1.5;}
 
 
 

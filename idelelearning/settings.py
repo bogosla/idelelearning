@@ -44,10 +44,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'courses',
     'students',
+    'pwa'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -132,3 +134,28 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (BASE_DIR / 'static/',)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media/'
+
+
+PWA_SERVICE_WORKER_PATH = BASE_DIR / 'css/static/js/serviceworker.js'
+PWA_APP_NAME = 'Idel'
+PWA_APP_DESCRIPTION = 'Idel elearning'
+PWA_APP_THEME_COLOR = '#262626'
+PWA_APP_BACKGROUND_COLOR = '#1FF6FF'
+PWA_APP_SCOPE = '/'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_ORIENTATION = 'any'
+PWA_APP_START_URL = ''
+PWA_APP_STATUS_BAR_COLOR = 'default'
+PWA_APP_ICONS = [{
+    'src': 'static/computer-5130405__480.webp',
+    'sizes': '96x96'
+    }, {
+    'src': 'static/one.png',
+    'sizes': '192x192'
+    }, {
+    'src': 'static/two.png',
+    'sizes': '512x512'
+    }
+]
+PWA_APP_DIR = 'ltr'
+PWA_APP_LANG = 'fr-fr'

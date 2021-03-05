@@ -1,8 +1,13 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="fr">
+{% load pwa %}
 <head>
+    {% progressive_web_app_meta %}
+
     <meta charset="UTF-8">
+    <meta content="yes" name="mobile-web-app-capable">
+    <link rel="manifest" href="manifest.json">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Idel - {% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.css' %}">
@@ -66,8 +71,6 @@
     <div class="wrapper-fluid xxx">{% block content %}{% endblock %}</div>
 
 
-
-
     {% block footer %}
         <footer id="foo">
             <div class="wrapper">
@@ -97,6 +100,18 @@
     <script src="{% static 'jquery-3.5.1.js' %}"></script>
 
     <script>
+        // var ok;
+        // var test = document.getElementById('tst');
+    
+        // window.addEventListener("beforeinstallprompt", (e)=>{
+        //     e.preventDefault();
+        //     ok = e;
+        //     alert(e);
+        // });
+        // test.addEventListener('click', (e)=>{
+        //     ok.prompt();
+        // });
+
         $(document).ready(function() {
             {% block js %}
             {% endblock %}
