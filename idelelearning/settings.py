@@ -129,14 +129,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = BASE_DIR / 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles/'
 
 STATICFILES_DIRS = (BASE_DIR / 'static/',)
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media/'
 
 
-PWA_SERVICE_WORKER_PATH = BASE_DIR / 'css/static/js/serviceworker.js'
+PWA_SERVICE_WORKER_PATH = BASE_DIR / 'static/js/serviceworker.js'
 PWA_APP_NAME = 'Idel'
 PWA_APP_DESCRIPTION = 'Idel elearning'
 PWA_APP_THEME_COLOR = '#262626'
@@ -159,3 +160,12 @@ PWA_APP_ICONS = [{
 ]
 PWA_APP_DIR = 'ltr'
 PWA_APP_LANG = 'fr-fr'
+
+# import django_heroku
+# import dj_database_url
+# db_from_env = dj_database_url.config(conn_max_age=500)
+# DATABASES['default'].update(db_from_env)  
+
+
+
+# django_heroku.settings(locals())
