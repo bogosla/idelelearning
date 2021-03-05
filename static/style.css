@@ -21,7 +21,7 @@ html, body { height: 100%; font-size: 14px; font-family: "jae"; color: #222; lin
   top: 0;
   width: 100%;
   /* background: #0a93a8; */
-  background-color: #9dec78;
+  background-color: #00B74A;
   /* box-shadow: 0 0 3px .5px #969fa0 ; */
   z-index: 900;
 
@@ -184,7 +184,10 @@ textarea.input { height: calc(3.5rem + 1.7rem + 4px); }
 .yello { background-color: #EDB641;}
 .b_blue { background-color: rgb(58, 169, 212); color: #ffffff; border: 1px solid rgb(51, 196, 221);}
 .c_black { color: #222;}
-
+.brown {
+  background-color: #BCAAA4;
+  color: #262626;
+}
 
 .p-1 { padding: .25rem; }
 .p-2 { padding: .5rem; }
@@ -274,7 +277,7 @@ textarea.input { height: calc(3.5rem + 1.7rem + 4px); }
 
 .pres{
   position: relative;
-  color: #e4dede;
+  color: #262626;
   width: inherit;
   height: calc(100vh - 3.5rem);
   display: flex;

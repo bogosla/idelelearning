@@ -21,20 +21,21 @@
     margin-top: 2.2rem !important;
     padding: .75rem .95rem;
     font-weight: 600;
-    background-color: #62da33;
+    background-color: #00B74A;
     border: 1px solid rgba(228, 243, 233, 0.9);
-    color: #222;
+    color: #FBFBFB;
+    border-radius: .30rem;
 }
 .form-log [class^="fa"] {
     font-size: 3.5rem;
-    height: 80px;
-    width: 80px;
+    height: 78px;
+    width: 78px;
     line-height: 1.5;
     text-align: center;
     border-radius: 50%;
     color: #ffffff;
-    background-color: #62da33;
-    border: 5.5px solid rgba(186, 214, 195, 0.2);
+    background-color: #66BB6A;
+    border: 5.5px solid #bad6c333;
     margin-bottom: 1.2rem;
 }
 
