@@ -15,26 +15,26 @@ class LoginForm(AuthenticationForm):
    '''
    username = forms.CharField(widget=forms.TextInput(
    attrs={'class': 'input',
-      'placeholder': 'Votre pseudo'
+      'placeholder': 'Username/Pseudo'
    }))
    
    password = forms.CharField(widget=forms.PasswordInput(
    attrs={'class': 'input',
-      'placeholder': 'Votre mot de passe'
+      'placeholder': 'Mot de passe'
    }))
    
 class RegisterForm(UserCreationForm):
    '''Formulaire pour enregister une compte. '''
-   first_name = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'input', 'placeholder': 'Your firstname'}))
-   last_name = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'input', 'placeholder': 'Your lastname'}))
-   email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={'class': 'input', 'placeholder': 'your email'}))
-   password = forms.CharField(max_length=120, widget=forms.PasswordInput(attrs={'class': 'input'}), required=True)
+   first_name = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'input', 'placeholder': 'Prenom'}))
+   last_name = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'input', 'placeholder': 'Nom'}))
+   email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={'class': 'input', 'placeholder': 'Email'}))
+   password = forms.CharField(max_length=120, widget=forms.PasswordInput(attrs={'class': 'input', 'placeholder': 'Mot de passe'}), required=True)
   
    class Meta:
       model = User
       fields = ('username', 'first_name' , 'last_name', 'email', 'password')
       widgets = {
-         'username': forms.TextInput(attrs={'class': 'input'})
+         'username': forms.TextInput(attrs={'class': 'input', 'placeholder': 'Username/Pseudo'})
       }
       
    def clean_first_name(self):
