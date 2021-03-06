@@ -12,7 +12,7 @@ margin: 0;
 font-weight: 200;
 }
 
-html, body { height: 100vh; font-size: 14px; font-family: "jae"; color: #222; line-height: 1.5;}
+html, body { height: 100%; font-size: 15px; font-family: "jae"; color: rgb(112, 110, 110); line-height: 1.5;}
 
 
 
@@ -20,8 +20,8 @@ html, body { height: 100vh; font-size: 14px; font-family: "jae"; color: #222; li
   position: fixed;
   top: 0;
   width: 100%;
-  /* background: #0a93a8; */
-  background-color: #00B74A;
+  background: #EBECF1;
+  /* background-color: #00B74A; */
   /* box-shadow: 0 0 3px .5px #969fa0 ; */
   z-index: 900;
 
@@ -30,10 +30,11 @@ html, body { height: 100vh; font-size: 14px; font-family: "jae"; color: #222; li
 .brand{
   font-size: 1.35rem;
   padding: .25rem .5rem;
-  font-weight: 300;
+  /* font-family: cursive !important; */
+  font-weight: 600;
   text-decoration: none;
   line-height: 1.5;
-  color: #ffffff;
+  color: #39c0ed;
   /* text-shadow: 0 1px 5px rgb(240, 247, 245); */
 }
 
@@ -277,7 +278,7 @@ textarea.input { height: calc(3.5rem + 1.7rem + 4px); }
 
 .pres{
   position: relative;
-  color: #262626;
+  /* color: #262626; */
   width: inherit;
   height: calc(100vh - 3.5rem);
   display: flex;

@@ -2,7 +2,7 @@
 
 @media(max-width: 567px)
 {
-    html { font-size: 14px; }
+    html { font-size: 14px !important; }
     .navbar {
         padding-top: .5rem;
         padding-bottom: .5rem;
@@ -13,6 +13,10 @@
 
      }
      .hamb { display: inline-block !important; }
+     .hamb, .brand {
+         display: inline-block;
+         vertical-align: middle;
+     }
 
     .nav {
         position: absolute;
