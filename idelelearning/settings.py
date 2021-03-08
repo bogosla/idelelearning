@@ -161,11 +161,11 @@ PWA_APP_ICONS = [{
 PWA_APP_DIR = 'ltr'
 PWA_APP_LANG = 'fr-fr'
 
-# import django_heroku
-# import dj_database_url
-# db_from_env = dj_database_url.config(conn_max_age=500)
-# DATABASES['default'].update(db_from_env)  
+import django_heroku
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)  
 
 
 
-# django_heroku.settings(locals())
+django_heroku.settings(locals())
